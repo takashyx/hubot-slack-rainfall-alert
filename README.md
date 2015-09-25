@@ -7,16 +7,36 @@ Post alerts on slack 30 minutes before it starts/stops raining(currently this sc
 ![](https://github.com/takashyx/hubot-slack-rainfall-alert/wiki/images/preview.png)
 
 ##Installation
-Go to your hubot-slack directory and run
+
+- Go to your hubot-slack directory and run
+
 ```bash
 npm install hubot-slack-rainfall-alert --save
+```
+
+to add `hubot-slack-rainfall-alert` to `package.json` of your hubot-slack
+
+- Add `hubot-slack-rainfall-alert` to `external-scripts.json` of your hubot-slack
+
+
+```bash
+$ cat external-scripts.json
+[
+  ... ,
+  "hubot-slack-rainfall-alert",
+  ...
+]
 ```
 
 ##Configuration
 
 ### Required API keys
-- Yahoo API key for Map API/Rainfall API (https://e.developer.yahoo.co.jp/dashboard/)
-- Google API key for ShortURL (https://console.developers.google.com/project)
+- Yahoo API key for Map API/Rainfall API [(https://e.developer.yahoo.co.jp/dashboard/)](https://e.developer.yahoo.co.jp/dashboard/)
+    + [YOLP(地図):気象情報API - Yahoo!デベロッパーネットワーク](http://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/weather.html)
+    + [YOLP(地図):Yahoo!スタティックマップAPI - Yahoo!デベロッパーネットワーク](http://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/static.html#exp_weather)
+    + [YOLP(地図):Yahoo!ジオコーダAPI - Yahoo!デベロッパーネットワーク](http://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/geocoder.html)
+- Google API key for ShortURL [(https://console.developers.google.com/project)](https://console.developers.google.com/project)
+    + [URL Shortener  |  Google Developers](https://developers.google.com/url-shortener/)
 
 ### Required parameters
 
@@ -28,12 +48,14 @@ export HUBOT_RAINFALL_ALERT_CHANNEL=[Channel name to post notifications ex: "gen
 export HUBOT_RAINFALL_ALERT_THRESH=[Notification threshold for rainfall(mm/h). ex: "0.5"]
 export HUBOT_RAINFALL_ALERT_CRONTIME=[Describe how often you want to check the rainfall in cron format. ex: "0 */10 0,9-23 * * *"]
 export HUBOT_RAINFALL_ALERT_LAT=[Latitude to check the rainfall. ex: "35.0000000"]
-export HUBOT_RAINFALL_ALERT_LON=[Longitude to check the rainfalll. ex: "139.8000000"]
+export HUBOT_RAINFALL_ALERT_LON=[Longitude to check the rainfall. ex: "139.8000000"]
 export HUBOT_RAINFALL_ALERT_LAT_FOR_MAP=[Latitude to show in the map on notifications. Recommend to set the same value as HUBOT_RAINFALL_ALERT_LAT ex: "35.0000000"]
 export HUBOT_RAINFALL_ALERT_LON_FOR_MAP=[Latitude to show in the map on notifications. Recommend to set about 0.8 degree smaller value than HUBOT_RAINFALL_ALERT_LON so that you can see the incoming watery clouds in the map. ex: "139.0000000"]
 export HUBOT_RAINFALL_ALERT_IMAGE_WIDTH=[Image width for the map/graph. Recommend: "500"]
 export HUBOT_RAINFALL_ALERT_IMAGE_HEIGHT=[Image height for the map. Recommend: "500"]
 ```
+
+##
 
 ## Special thanks
 This script uses Yahoo APIs/Google APIs.
