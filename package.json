@@ -1,0 +1,22 @@
+{
+  "name": "hubot-slack-rainfall-alert",
+  "version": "1.0.0",
+  "description": "A rainfall alert script for hubot-slack",
+  "main": "index.coffee",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takashyx/hubot-slack-rainfall-alert.git"
+  },
+  "keywords": [
+    "hubot",
+    "slack",
+    "rainfall",
+    "alert"
+  ],
+  "author": "takashyx",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/takashyx/hubot-slack-rainfall-alert/issues"
+  },
+  "homepage": "https://github.com/takashyx/hubot-slack-rainfall-alert#readme"
+}
