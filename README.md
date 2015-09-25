@@ -6,7 +6,7 @@ Post alerts on slack 30 minutes before it starts/stops raining(currently this sc
 
 ![](https://github.com/takashyx/hubot-slack-rainfall-alert/wiki/images/preview.png)
 
-##Installation
+## Installation
 
 - Go to your hubot-slack directory and run
 
@@ -28,7 +28,7 @@ $ cat external-scripts.json
 ]
 ```
 
-##Configuration
+## Configuration
 
 ### Required API keys
 - Yahoo API key for Map API/Rainfall API [(https://e.developer.yahoo.co.jp/dashboard/)](https://e.developer.yahoo.co.jp/dashboard/)
@@ -54,8 +54,6 @@ export HUBOT_RAINFALL_ALERT_LON_FOR_MAP=[Latitude to show in the map on notifica
 export HUBOT_RAINFALL_ALERT_IMAGE_WIDTH=[Image width for the map/graph. Recommend: "500"]
 export HUBOT_RAINFALL_ALERT_IMAGE_HEIGHT=[Image height for the map. Recommend: "500"]
 ```
-
-##
 
 ## Special thanks
 This script uses Yahoo APIs/Google APIs.
