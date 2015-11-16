@@ -82,7 +82,6 @@ module.exports = (robot) ->
       return
 
     getLALFromAreaString_promised(msg, area).then ((result) ->
-      msg.send result
       if result.ResultInfo.Count == 0
         msg.send "area を地名として特定できませんでした。"
         return
@@ -213,7 +212,7 @@ rainfallCheckShowResult = (robot, reply_to_obj, rainfall, notify_nodiff, width) 
       radar_url = results[1]
       rainfall_image_url = results[2]
 
-      reply_to_obj.send {room: rainfallcheck_param.alert_channel}, ( head_message + bar_image_url + "\n" +
+      robot.send {room: rainfallcheck_param.alert_channel}, ( head_message + bar_image_url + "\n" +
         timeString + "の雨雲の様子: " + rainfall_image_url + "\n" +
         "より詳しいページヘ行く: " + radar_url + "\n" )
 
