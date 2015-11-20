@@ -82,10 +82,12 @@ module.exports = (robot) ->
       return
 
     getLALFromAreaString_promised(msg, area).then ((result) ->
+      console.log result
       if result.ResultInfo.Count == 0
-        msg.send "area を地名として特定できませんでした。"
+        msg.send "「#{area}」 を地名として特定できませんでした。"
         return
       else
+        msg.send "#{result.Feature[0].Name}の現在の雨雲"
         coordinates = (result.Feature[0].Geometry.Coordinates).split(",")
         lon = coordinates[0]
         lat = coordinates[1]
@@ -94,7 +96,7 @@ module.exports = (robot) ->
           msg.send res)
       )
 
-rainfallCheck = (robot, reply_to_obj, notify_nodiff) ->
+rainfallCheck = (robot, notify_nodiff) ->
 
   # YOLP(地図):気象情報API - Yahoo!デベロッパーネットワーク
   # http://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/weather.html
@@ -110,10 +112,10 @@ rainfallCheck = (robot, reply_to_obj, notify_nodiff) ->
   .get() (err, res, body) ->
     data = JSON.parse(body)
     rainfall = data.Feature[0].Property.WeatherList.Weather
-    rainfallCheckShowResult robot, reply_to_obj, rainfall, notify_nodiff, rainfallcheck_param.map_image_x
+    rainfallCheckShowResult robot, rainfall, notify_nodiff, rainfallcheck_param.map_image_x
 
 
-rainfallCheckShowResult = (robot, reply_to_obj, rainfall, notify_nodiff, width) ->
+rainfallCheckShowResult = (robot, rainfall, notify_nodiff, width) ->
 
   timeString = getTimeString 30
 
