@@ -96,7 +96,7 @@ module.exports = (robot) ->
           msg.send res)
       )
 
-rainfallCheck = (robot, notify_nodiff) ->
+rainfallCheck = (robot, msg, notify_nodiff) ->
 
   # YOLP(地図):気象情報API - Yahoo!デベロッパーネットワーク
   # http://developer.yahoo.co.jp/webapi/map/openlocalplatform/v1/weather.html
@@ -118,6 +118,7 @@ rainfallCheck = (robot, notify_nodiff) ->
 rainfallCheckShowResult = (robot, rainfall, notify_nodiff, width) ->
 
   timeString = getTimeString 30
+  send_message = false
 
   if rainfall[3].Rainfall >= rainfallcheck_param.alert_thresh and ((robot.brain.get 'raining') == 'false')
     send_message = true
@@ -217,8 +218,6 @@ rainfallCheckShowResult = (robot, rainfall, notify_nodiff, width) ->
       robot.send {room: rainfallcheck_param.alert_channel}, ( head_message + bar_image_url + "\n" +
         timeString + "の雨雲の様子: " + rainfall_image_url + "\n" +
         "より詳しいページヘ行く: " + radar_url + "\n" )
-
-
     )
 
 
