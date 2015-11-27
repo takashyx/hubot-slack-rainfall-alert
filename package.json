@@ -1,14 +1,14 @@
 {
   "name": "hubot-slack-rainfall-alert",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A rainfall alert script for hubot-slack",
   "dependencies": {
-    "bluebird": "^2.10.0",
+    "bluebird": "^3.0.5",
     "cron": "^1.0.9",
     "google-url": "0.0.4",
     "moment-timezone": "^0.4.0",
     "hubot-redis-brain": "0.0.3",
-    "quiche": "0.0.8"
+    "quiche": "0.0.10"
   },
   "main": "index.coffee",
   "repository": {
