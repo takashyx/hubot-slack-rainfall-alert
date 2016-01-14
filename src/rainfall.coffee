@@ -23,7 +23,7 @@ rainfall_param = {
 
 rainfallcheck_param = {
 
-  cron_time: process.env.HUBOT_RAINFALL_ALERT_CRONTIME
+  cron_time: process.env.HUBOT_RAINFALL_ALERT_CRONTIME,
   lat: process.env.HUBOT_RAINFALL_ALERT_LAT,
   lon: process.env.HUBOT_RAINFALL_ALERT_LON,
 
@@ -48,7 +48,7 @@ module.exports = (robot) ->
     start: true
   )
 
-  robot.brain.set 'raining', 'true'
+  robot.brain.set 'raining', 'false'
 
   unless process.env.HUBOT_RAINFALL_ALERT_YAHOO_APP_ID?
     robot.logger.warning 'Required HUBOT_RAINFALL_ALERT_YAHOO_APP_ID environment.'
