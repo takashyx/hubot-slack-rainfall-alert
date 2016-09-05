@@ -33,7 +33,7 @@ rainfallcheck_param = {
   zoom: "9",
   map_image_x: process.env.HUBOT_RAINFALL_ALERT_IMAGE_WIDTH,
   map_image_y: process.env.HUBOT_RAINFALL_ALERT_IMAGE_HEIGHT,
-  alert_channel: process.env.HUBOT_RAINFALL_ALERT_CHANNEL,
+  alert_channel_id: process.env.HUBOT_RAINFALL_ALERT_CHANNEL_ID,
   alert_thresh: process.env.HUBOT_RAINFALL_ALERT_THRESH
 }
 
@@ -215,7 +215,7 @@ rainfallCheckShowResult = (robot, rainfall, notify_nodiff, width) ->
       radar_url = results[1]
       rainfall_image_url = results[2]
 
-      robot.send {room: rainfallcheck_param.alert_channel}, ( head_message + bar_image_url + "\n" +
+      robot.send {room: rainfallcheck_param.alert_channel_id}, ( head_message + bar_image_url + "\n" +
         timeString + "の雨雲の様子: " + rainfall_image_url + "\n" +
         "より詳しいページヘ行く: " + radar_url + "\n" )
     )

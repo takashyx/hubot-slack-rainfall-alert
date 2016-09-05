@@ -44,7 +44,7 @@ Envs
 ```bash
 export HUBOT_RAINFALL_ALERT_YAHOO_APP_ID=[Your yahoo app id here]
 export HUBOT_RAINFALL_ALERT_GOOGLE_API_KEY=[Your google api key here]
-export HUBOT_RAINFALL_ALERT_CHANNEL=[Channel name to post notifications ex: "general"]
+export HUBOT_RAINFALL_ALERT_CHANNEL_ID=[Channel ID (not name!!!) to post notifications ex: "C035AFECB" -> get id from https://api.slack.com/methods/channels.list/test ]
 export HUBOT_RAINFALL_ALERT_THRESH=[Notification threshold for rainfall(mm/h). ex: "0.5"]
 export HUBOT_RAINFALL_ALERT_CRONTIME=[Describe how often you want to check the rainfall in cron format. ex: "0 */10 0,9-23 * * *"]
 export HUBOT_RAINFALL_ALERT_LAT=[Latitude to check the rainfall. ex: "35.0000000"]
